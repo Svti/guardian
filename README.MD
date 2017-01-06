@@ -14,6 +14,32 @@ Guardian
 
 ![image](http://7xi2xp.com1.z0.glb.clouddn.com/guardian-sequence.png)
 
+# 使用
+
+```java
+
+//TODO 三个步骤
+
+//生产者，初始化注册节点
+ZookeeperRegistry zr = new ZookeeperRegistry ();
+Zdata zdata = new Zdata();
+zr.regist(zdata);
+
+
+//消费者，继承ZookeeperDiscovery，等待回调
+
+discover(Zdata provider);//可用的节点
+
+destory();//一旦断开zookeeper，消费者也要断开，保持一致
+
+
+//消费者如果成功消费，需要告诉zookeeper
+consume(Zdata provider, String host, int port)//提供消费者是谁，以及自身的ip和端口
+
+```
+
+- 以上三步实现了，程序就能正常运行了。
+
 
 # 测试效果
 
