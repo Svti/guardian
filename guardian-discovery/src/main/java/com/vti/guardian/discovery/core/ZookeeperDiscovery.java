@@ -83,7 +83,7 @@ public abstract class ZookeeperDiscovery {
 
 			if (zkClient.checkExists().forPath(APPLICATION_ZK_PATH + ZooKeeperConstant.CONTROLLER_ZK_PATH) == null) {
 				zkClient.create().withMode(CreateMode.PERSISTENT)
-						.forPath(APPLICATION_ZK_PATH + ZooKeeperConstant.CONSUMER_ZK_PATH);
+						.forPath(APPLICATION_ZK_PATH + ZooKeeperConstant.CONTROLLER_ZK_PATH);
 			}
 
 			logger.info("ZookeeperDiscovery init in {} finish ", APPLICATION_ZK_PATH);
