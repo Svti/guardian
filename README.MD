@@ -1,5 +1,6 @@
 Guardian
 =====
+![image](http://7xi2xp.com1.z0.glb.clouddn.com/guardian-logo.jpg)
 
 **让你的程序快速接入Zookeeper来实现高可用**
 
