@@ -1,15 +1,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>com.vti.guardian</groupId>
-		<artifactId>guardian</artifactId>
-		<version>1.0.1</version>
-	</parent>
+
+	<groupId>com.vti.guardian</groupId>
 	<artifactId>guardian-sample</artifactId>
+	<version>1.0.1</version>
 
 	<properties>
 		<junit.version>4.12</junit.version>
+		<guardian.version>1.0.1</guardian.version>
 	</properties>
 
 	<dependencies>
@@ -17,13 +16,13 @@
 		<dependency>
 			<groupId>com.vti.guardian</groupId>
 			<artifactId>guardian-registry</artifactId>
-			<version>${parent.version}</version>
+			<version>${guardian.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>com.vti.guardian</groupId>
 			<artifactId>guardian-discovery</artifactId>
-			<version>${parent.version}</version>
+			<version>${guardian.version}</version>
 		</dependency>
 
 		<dependency>

@@ -9,7 +9,6 @@
 		<module>guardian-registry</module>
 		<module>guardian-discovery</module>
 		<module>guardian-common</module>
-		<module>guardian-sample</module>
 	</modules>
 
 	<properties>
