@@ -31,23 +31,24 @@ public class NioServer extends Thread {
 
 	public NioServer(String name, String zkurl, String host, int port) {
 
-		EventLoopGroup bossGroup = new NioEventLoopGroup(); // (1)
+		EventLoopGroup bossGroup = new NioEventLoopGroup();
 		EventLoopGroup workerGroup = new NioEventLoopGroup();
 		try {
-			ServerBootstrap b = new ServerBootstrap(); // (2)
-			b.group(bossGroup, workerGroup).channel(NioServerSocketChannel.class) // (3)
-					.childHandler(new ChannelInitializer<SocketChannel>() { // (4)
+			ServerBootstrap b = new ServerBootstrap();
+			b.group(bossGroup, workerGroup).channel(NioServerSocketChannel.class)
+					.childHandler(new ChannelInitializer<SocketChannel>() {
 						@Override
 						public void initChannel(SocketChannel ch) throws Exception {
+							//分包拆包器
 							ch.pipeline().addLast(new LineBasedFrameDecoder(Integer.MAX_VALUE));
 							ch.pipeline().addLast(new StringDecoder());
 							ch.pipeline().addLast(new StringEncoder());
 							ch.pipeline().addLast(new ServerHandler());
 						}
-					}).option(ChannelOption.SO_BACKLOG, 128) // (5)
-					.childOption(ChannelOption.SO_KEEPALIVE, true); // (6)
+					}).option(ChannelOption.SO_BACKLOG, 128)
+					.childOption(ChannelOption.SO_KEEPALIVE, true);
 
-			channelFuture = b.bind(new InetSocketAddress(host, port)).sync(); // (7)
+			channelFuture = b.bind(new InetSocketAddress(host, port)).sync();
 
 			// 连接zookeepr
 			registry = new ZookeeperRegistry(name, zkurl);

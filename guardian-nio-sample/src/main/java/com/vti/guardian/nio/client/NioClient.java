@@ -51,6 +51,7 @@ public class NioClient extends ZookeeperDiscovery implements Runnable {
 	public void run() {
 		while (true) {
 			try {
+				//需要连才连
 				if (provider != null) {
 					start(provider);
 					provider = null;
@@ -58,6 +59,7 @@ public class NioClient extends ZookeeperDiscovery implements Runnable {
 					Thread.sleep(3 * 1000);
 				}
 			} catch (Exception e) {
+				//异常重连
 				continue;
 			}
 		}
@@ -76,6 +78,7 @@ public class NioClient extends ZookeeperDiscovery implements Runnable {
 		bootstrap.handler(new ChannelInitializer<SocketChannel>() {
 			@Override
 			public void initChannel(SocketChannel ch) throws Exception {
+				//分包拆包器
 				ch.pipeline().addLast(new LineBasedFrameDecoder(Integer.MAX_VALUE));
 				ch.pipeline().addLast(new StringEncoder());
 				ch.pipeline().addLast(new StringDecoder());
@@ -83,7 +86,7 @@ public class NioClient extends ZookeeperDiscovery implements Runnable {
 			}
 		});
 
-		channel = bootstrap.connect(provider.getHost(), provider.getPort()).sync().channel(); // (5)
+		channel = bootstrap.connect(provider.getHost(), provider.getPort()).sync().channel();
 
 		InetSocketAddress inetSocketAddress = (InetSocketAddress) channel.localAddress();
 
