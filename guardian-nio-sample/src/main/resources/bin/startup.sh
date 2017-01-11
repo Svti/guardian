@@ -94,7 +94,7 @@
 
 # OS specific support.  $var _must_ be set to either true or false.
 
-MAIN_CLASS=com.vti.guardian.sample.server.Server
+MAIN_CLASS=com.vti.guardian.nio.server.NioServer
 
 cygwin=false
 darwin=false
