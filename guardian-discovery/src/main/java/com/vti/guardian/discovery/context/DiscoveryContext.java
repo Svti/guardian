@@ -9,7 +9,7 @@ public class DiscoveryContext {
 
 	public static final String LAST_ZDATA = "last";
 
-	private static final Map<String, Zdata> zdataMap = new ConcurrentHashMap<>();
+	private static final Map<String, Zdata> zdataMap = new ConcurrentHashMap<String, Zdata>();
 	
 	public static Zdata getLastZdata() {
 		return zdataMap.get(LAST_ZDATA);
