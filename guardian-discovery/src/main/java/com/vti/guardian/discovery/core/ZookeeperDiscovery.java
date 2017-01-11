@@ -115,8 +115,6 @@ public abstract class ZookeeperDiscovery {
 
 		session.setConsumer(consumer);
 
-		byte[] data = new Gson().toJson(session).getBytes();
-
 		String path = APPLICATION_ZK_PATH + ZooKeeperConstant.CONSUMER_ZK_PATH + ZooKeeperConstant.ZKSPLIT
 				+ consumer.getHost() + ZooKeeperConstant.ZKDOT + +consumer.getPort();
 
@@ -124,10 +122,12 @@ public abstract class ZookeeperDiscovery {
 			zkClient.delete().forPath(path);
 		}
 
-		zkClient.create().creatingParentsIfNeeded().withMode(CreateMode.EPHEMERAL).forPath(path);
+		zkClient.create().creatingParentsIfNeeded().withMode(CreateMode.EPHEMERAL).forPath(path,
+				new Gson().toJson(consumer).getBytes());
 
 		zkClient.create().creatingParentsIfNeeded().withMode(CreateMode.EPHEMERAL_SEQUENTIAL).forPath(
-				APPLICATION_ZK_PATH + ZooKeeperConstant.CONTROLLER_ZK_PATH + ZooKeeperConstant.SESSION_ZK_PATH, data);
+				APPLICATION_ZK_PATH + ZooKeeperConstant.CONTROLLER_ZK_PATH + ZooKeeperConstant.SESSION_ZK_PATH,
+				new Gson().toJson(session).getBytes());
 	}
 
 	private void watchNode(CuratorFramework zkClient) {
