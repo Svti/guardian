@@ -1,34 +1,93 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-
 	<groupId>com.vti.guardian</groupId>
-	<artifactId>guardian-sample</artifactId>
+	<artifactId>guardian-web</artifactId>
 	<version>1.0.1</version>
+	<description>guardian web view</description>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.4.0.RELEASE</version>
+	</parent>
 
 	<properties>
-		<junit.version>4.12</junit.version>
+		<log4j.version>2.5</log4j.version>
+		<slf4j.version>1.7.12</slf4j.version>
 		<guardian.version>1.0.1</guardian.version>
 	</properties>
 
 	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<exclusions>
+				<exclusion>
+					<artifactId>slf4j-api</artifactId>
+					<groupId>org.slf4j</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>logback-classic</artifactId>
+					<groupId>ch.qos.logback</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
 
 		<dependency>
-			<groupId>com.vti.guardian</groupId>
-			<artifactId>guardian-registry</artifactId>
-			<version>${guardian.version}</version>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-freemarker</artifactId>
 		</dependency>
 
 		<dependency>
 			<groupId>com.vti.guardian</groupId>
-			<artifactId>guardian-discovery</artifactId>
+			<artifactId>guardian-common</artifactId>
 			<version>${guardian.version}</version>
 		</dependency>
 
 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>${junit.version}</version>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-ext</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-1.2-api</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-slf4j-impl</artifactId>
+			<exclusions>
+				<exclusion>
+					<artifactId>slf4j-api</artifactId>
+					<groupId>org.slf4j</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-jcl</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-web</artifactId>
+			<version>${log4j.version}</version>
 		</dependency>
 
 	</dependencies>
@@ -40,13 +99,6 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-
-			<plugin>
-				<artifactId>maven-javadoc-plugin</artifactId>
-				<configuration>
-					<docfilessubdirs>false</docfilessubdirs>
-				</configuration>
 			</plugin>
 
 			<plugin>
@@ -110,7 +162,7 @@
 							<addClasspath>true</addClasspath>
 							<customClasspathLayout>${artifact.artifactId}-${artifact.baseVersion}${dashClassifier?}.${artifact.extension}</customClasspathLayout>
 							<classpathLayoutType>custom</classpathLayoutType>
-							<mainClass>com.vti.guardian.sample.server.Server</mainClass>
+							<mainClass>com.vti.guardian.web.main.GuardianWeb</mainClass>
 						</manifest>
 					</archive>
 					<outputDirectory>${project.build.directory}/${project.build.finalName}/lib/</outputDirectory>
@@ -145,5 +197,4 @@
 
 		</plugins>
 	</build>
-
 </project>

@@ -117,7 +117,7 @@
 							<addClasspath>true</addClasspath>
 							<customClasspathLayout>${artifact.artifactId}-${artifact.baseVersion}${dashClassifier?}.${artifact.extension}</customClasspathLayout>
 							<classpathLayoutType>custom</classpathLayoutType>
-							<mainClass>com.vti.guardian.sample.client.Client</mainClass>
+							<mainClass>com.vti.guardian.nio.server.NioServer</mainClass>
 						</manifest>
 					</archive>
 					<outputDirectory>${project.build.directory}/${project.build.finalName}/lib/</outputDirectory>

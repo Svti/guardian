@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Guardian Web 监控</title>
+		<link rel="stylesheet"	href="//cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+		<script src="//cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+		<script src="//cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		
+		<nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
+			<div class="container-fluid">
+	
+				<div class="navbar-header">
+					<a class="navbar-brand" href="/guardian">Guardian</a>
+				</div>
+	
+				<div class="collapse navbar-collapse"
+					id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li><a href="/guardian">状态</a></li>
+						<li class="active"><a href="/guardian/providers">生产者</a></li>
+						<li><a href="/guardian/consumers">消费者</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		
+		<div class="page-header" style="padding:10px;">
+		  <h4>生产者节点</h4>
+		</div>
+		
+		<div class="container-fluid">
+			<div class="row-fluid">
+				<div class="span4">
+				</div>
+				<div class="span4">
+					<table class="table table-bordered">
+						<thead>
+							<tr>
+								<th>
+									编号
+								</th>
+								<th>
+									主机
+								</th>
+								<th>
+									端口
+								</th>
+								<th>
+									创建时间
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<#list providers as zdata> 
+							<tr>
+								<td>
+									${zdata_index+1}
+								</td>
+								<td>
+									${zdata.host}
+								</td>
+								<td>
+									${zdata.port?c}
+								</td>
+								<td>
+									${zdata.date?string('yyyy-MM-dd HH:mm:ss')}
+								</td>
+							</tr>
+							</#list>
+						</tbody>
+					</table>
+				</div>
+				<div class="span4">
+				</div>
+			</div>
+		</div>
+		
+	</body>
+</html>

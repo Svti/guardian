@@ -47,5 +47,9 @@ consume(Zdata provider, String host, int port)//提供消费者是谁，以及�
 ![image](http://7xi2xp.com1.z0.glb.clouddn.com/guardian.png)
 
 
+# 监控
+![image](http://7xi2xp.com1.z0.glb.clouddn.com/guardian-monitor.png)
+
+
 # 其他
 **后续会提交到中心仓库**
