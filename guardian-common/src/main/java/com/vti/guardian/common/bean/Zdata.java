@@ -7,7 +7,9 @@ public class Zdata {
 	private String host;
 
 	private int port;
-
+	
+	private String ext;
+	
 	private long timestamp = System.currentTimeMillis();
 
 	public String getHost() {
@@ -28,6 +30,14 @@ public class Zdata {
 
 	public long getTimestamp() {
 		return timestamp;
+	}
+	
+	public String getExt() {
+		return ext;
+	}
+
+	public void setExt(String ext) {
+		this.ext = ext;
 	}
 
 	@Override
