@@ -2,7 +2,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.vti.guardian</groupId>
+	<groupId>online.datanode.guardian</groupId>
 	<artifactId>guardian-nio-sample</artifactId>
 	<version>1.0.1</version>
 
@@ -15,13 +15,13 @@
 	<dependencies>
 
 		<dependency>
-			<groupId>com.vti.guardian</groupId>
+			<groupId>online.datanode.guardian</groupId>
 			<artifactId>guardian-registry</artifactId>
 			<version>${guardian.version}</version>
 		</dependency>
 
 		<dependency>
-			<groupId>com.vti.guardian</groupId>
+			<groupId>online.datanode.guardian</groupId>
 			<artifactId>guardian-discovery</artifactId>
 			<version>${guardian.version}</version>
 		</dependency>

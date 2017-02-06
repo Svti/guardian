@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.vti.guardian</groupId>
+	<groupId>online.datanode.guardian</groupId>
 	<artifactId>guardian</artifactId>
 	<version>1.0.1</version>
 	<packaging>pom</packaging>
@@ -9,6 +9,7 @@
 		<module>guardian-registry</module>
 		<module>guardian-discovery</module>
 		<module>guardian-common</module>
+		<module>guardian-web</module>
 	</modules>
 
 	<properties>
