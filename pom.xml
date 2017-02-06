@@ -5,12 +5,29 @@
 	<artifactId>guardian</artifactId>
 	<version>1.0.1</version>
 	<packaging>pom</packaging>
+
 	<modules>
 		<module>guardian-registry</module>
 		<module>guardian-discovery</module>
 		<module>guardian-common</module>
 		<module>guardian-web</module>
 	</modules>
+	<description>让你的程序快速接入Zookeeper来实现高可用</description>
+	<name>Guardian</name>
+	
+	<url>http://datanode.online/guardian/</url>
+
+	<organization>
+		<url>http://datanode.online</url>
+		<name>datanode</name>
+	</organization>
+	<scm>
+		<url>http://github.com/Svti/guardian</url>
+		<developerConnection>Svti</developerConnection>
+	</scm>
+	<ciManagement>
+		<url>http://datanode.online/guardian/</url>
+	</ciManagement>
 
 	<properties>
 		<curator.version>2.10.0</curator.version>
