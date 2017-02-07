@@ -1,6 +1,3 @@
-
-
-
 Guardian
 =====
 ![image](http://7xi2xp.com1.z0.glb.clouddn.com/guardian-logo.jpg)
