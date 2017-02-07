@@ -60,5 +60,23 @@ consume(Zdata provider, String host, int port)//提供消费者是谁，以及�
     ![image](http://7xi2xp.com1.z0.glb.clouddn.com/128909778-logo.png)
 
 
-# 其他
-**后续会提交到中心仓库**
+# Maven 地址
+```xml
+		<dependency>
+			<groupId>online.datanode.guardian</groupId>
+			<artifactId>guardian-registry</artifactId>
+			<version>1.0.1</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>online.datanode.guardian</groupId>
+			<artifactId>guardian-discovery</artifactId>
+			<version>1.0.1</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>online.datanode.guardian</groupId>
+			<artifactId>guardian-common</artifactId>
+			<version>1.0.1</version>
+		</dependency>
+```
