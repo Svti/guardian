@@ -13,7 +13,7 @@
 	</parent>
 
 	<properties>
-		<log4j.version>2.5</log4j.version>
+		<log4j.version>2.14.1</log4j.version>
 		<slf4j.version>1.7.12</slf4j.version>
 		<guardian.version>1.0.1</guardian.version>
 	</properties>
